@@ -74,13 +74,16 @@ $(document).ready(function() {
 
 
 
-    $('.fa-infinity').click(function(){
-        loop = setInterval(function(){ nextSlide(); }, 1000);
-    })
+    $('.fa-infinity').click(function(){ // al click sull'icona infinity
+        loop = setInterval(function(){ nextSlide(); }, 1000); // var generale senza il VAR cosi da poterla richiamare nel tasto pause
+    })  // con setInt invochiamo la Funz Next slide e creiamo un LOOP infinito
 
     $('.fa-pause').click(function(){
-        clearInterval(loop);
+        clearInterval(loop); // usando clearInterval stoppiamo il loop precedentemente creato
     })
 
+    // al click sull'icona infinity
+    // var generale senza il VAR cosi da poterla richiamare nel tasto pause // con setInt invochiamo la Funz Next slide e creiamo un LOOP infinito
+    // usando clearInterval stoppiamo il loop precedentemente creato
 
 });
