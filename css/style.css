@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .slideshow {
@@ -25,6 +26,9 @@
     font-size: 30px;
     width: 50px;
     cursor: pointer;
+}
+.prev:hover, .next:hover {
+    transform: scale(1.2);
 }
 
 .images {
@@ -47,16 +51,45 @@
 
 .slider-nav {
     padding: 10px 15px;
-    border-radius: 5px;
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0,0,0,0.5);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
+.slider-nav .fa-circle {
+    font-size: 8px;
+    padding: 2px;
+}
+
+
 
 .slider-nav i.active {
     color: white;
+}
+
+.container-autoplay {
+    width: 500px;
+    height: 50px;
+
+}
+
+.icon-autoplay {
+    display: flex;
+    justify-content: center;
+
+}
+
+.icon-autoplay .fas {
+    margin-top: 8px;
+    font-size: 25px;
+    color: black;
+    padding: 5px;
+
+}
+
+.icon-autoplay .fas:hover {
+    transform: scale(1.2);
 }
