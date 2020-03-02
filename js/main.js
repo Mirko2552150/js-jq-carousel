@@ -72,4 +72,15 @@ $(document).ready(function() {
         }
     }
 
+
+
+    $('.fa-infinity').click(function(){
+        loop = setInterval(function(){ nextSlide(); }, 1000);
+    })
+
+    $('.fa-pause').click(function(){
+        clearInterval(loop);
+    })
+
+
 });

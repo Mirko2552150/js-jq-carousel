@@ -80,8 +80,7 @@ $(document).ready(function() {
     })
 
     $('.fa-pause').click(function(){
-        clearInterval(function(){ stopCycle();});
+        
     })
-
 
 });
