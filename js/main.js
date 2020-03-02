@@ -25,8 +25,8 @@ $(document).ready(function() {
             $('.images img.first').addClass('active'); // e aggiungo la classe ACTIVE nella classe FIST (esempio ultima IMG prima del nuovo ciclo)
 
             // Pallini
-            $('.slider-nav i.active').removeClass('active');
-            $('.slider-nav i.first').addClass('active');
+            $('.slider-nav i.active').removeClass('active'); // Rif pall, caso fine ciclo con IF, se arriva a fine ciclo, togli ACTIVE da pallino attivo
+            $('.slider-nav i.first').addClass('active'); // inserisci ACTIVE alla classe FIRST (primo pallino)
 
         } else {
             var imgAttiva = $('.images img.active'); // Rimuovo l'active dall'immagine in visione (active)
@@ -36,10 +36,10 @@ $(document).ready(function() {
             prossimaImg.addClass('active');
 
             // Pallini
-            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active
-            var prossimaPallino = $('.slider-nav i.active').next();
+            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active dal Pall attivo
+            var prossimaPallino = $('.slider-nav i.active').next(); // sposto il Pall active a quello successivo
 
-            pallinoAttivo.removeClass('active');
+            pallinoAttivo.removeClass('active'); // Shortcut Precedentemente assegnati
             prossimaPallino.addClass('active');
         }
     }
@@ -53,22 +53,22 @@ $(document).ready(function() {
             $('.images img.last').addClass('active'); // la inserisco all'ultima (BACK)
 
             // Pallini
-            $('.slider-nav i.active').removeClass('active');
-            $('.slider-nav i.last').addClass('active');
+            $('.slider-nav i.active').removeClass('active'); // tolgo il Pall all'ultimo ACTIVE
+            $('.slider-nav i.last').addClass('active'); // lo faccio ripartire dall'ultimo (LAST)
 
         } else { // sequenza con ELSE
             var imgAttiva = $('.images img.active'); // Rimuovo l'active dall'IMG attiva
             var precedenteImg = $('.images img.active').prev(); // inserisco active all'IMG precedente (BACK)
 
-            imgAttiva.removeClass('active');
+            imgAttiva.removeClass('active'); // Shortcut
             precedenteImg.addClass('active');
 
             // Pallini
-            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active
-            var prossimaPallino = $('.slider-nav i.active').next();
+            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active dal pallino ACTIVE
+            var precedentePallino = $('.slider-nav i.active').prev(); // aggiungo l'active al precendete Pall
 
-            pallinoAttivo.removeClass('active');
-            prossimaPallino.addClass('active');
+            pallinoAttivo.removeClass('active'); // shortcut assegnati precedentemente
+            precedentePallino.addClass('active');
         }
     }
 
