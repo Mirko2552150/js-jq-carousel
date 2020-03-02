@@ -1,3 +1,16 @@
+// SCOPO DEL GIOCO:
+// Sulla base di quanto visto a lezione, replicare la logica dello slideshow per animare il click sinistro.
+// Logica identica a quella che abbiamo visto insieme ma senso invertito.
+// Timing Functions: Usiamo una delle due o entrambe per gestire l’autoplay ---->
+// 1 riga di codice. Poi però da qui cercate di immaginare voi qualche scenario possibile nel quale il vostro slideshow
+// vi piacerebbe si comportasse in un certo modo. Vi faccio qualche esempio:
+// bloccare la ripetizione dopo qualche decina di secondi
+// blocco al mouseenter ---- sblocco al mouseleave
+// Tasto Pausa ---- Tasto Play
+// Insomma divertitevi un po’ a giocarci e a indagare.
+// BONUS: Gestire il click su un pallino che mi sposta alla slide corrispondente.
+
+
 $(document).ready(function() {
 
     // Invoco le funzioni per cambiare slide
@@ -5,21 +18,21 @@ $(document).ready(function() {
 
 
     // Definisco le funzioni nextImage e prevImage
-    function nextSlide() {
-        if ( $('.images img.active').hasClass('last') ) {
+    function nextSlide() { // nominiamo uno funzione PARLANTE nextSlide
+        if ( $('.images img.active').hasClass('last') ) { // se nella la classe ACTIVE è presente la classe LAST
 
-            $('.images img.active').removeClass('active');
-            $('.images img.first').addClass('active');
+            $('.images img.active').removeClass('active'); //allora togli ACTIVE dalla classe ACTIVE
+            $('.images img.first').addClass('active'); // e aggiungo la classe ACTIVE nella classe FIST (esempio ultima IMG prima del nuovo ciclo)
 
             // Pallini
             $('.slider-nav i.active').removeClass('active');
             $('.slider-nav i.first').addClass('active');
 
         } else {
-            var imgAttiva = $('.images img.active'); // Rimuovo l'active
-            var prossimaImg = $('.images img.active').next();
+            var imgAttiva = $('.images img.active'); // Rimuovo l'active dall'immagine in visione (active)
+            var prossimaImg = $('.images img.active').next(); // inserisco l'ACTIVE nell'imamgine successiva (NEXT)
 
-            imgAttiva.removeClass('active');
+            imgAttiva.removeClass('active'); // uso SHORTCUT impostate precedentemente
             prossimaImg.addClass('active');
 
             // Pallini
@@ -31,7 +44,32 @@ $(document).ready(function() {
         }
     }
 
+    $('.prev').click(backSlide); // associo il click al tasto "back"
 
+    function backSlide() { // creo funzione backSLide
+        if ( $('.images img.active').hasClass('first') ) { // inizio ciclo con IF / se IMG attiva è la prima
 
+            $('.images img.active').removeClass('active'); // tolgo IMG all'IMG attiva
+            $('.images img.last').addClass('active'); // la inserisco all'ultima (BACK)
+
+            // Pallini
+            $('.slider-nav i.active').removeClass('active');
+            $('.slider-nav i.last').addClass('active');
+
+        } else { // sequenza con ELSE
+            var imgAttiva = $('.images img.active'); // Rimuovo l'active dall'IMG attiva
+            var precedenteImg = $('.images img.active').prev(); // inserisco active all'IMG precedente (BACK)
+
+            imgAttiva.removeClass('active');
+            precedenteImg.addClass('active');
+
+            // Pallini
+            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active
+            var prossimaPallino = $('.slider-nav i.active').next();
+
+            pallinoAttivo.removeClass('active');
+            prossimaPallino.addClass('active');
+        }
+    }
 
 });
